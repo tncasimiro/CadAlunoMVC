@@ -1,0 +1,42 @@
+﻿@model List<CidadeViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Listagem de Cidades</h2>
+
+<a href="/cidade/create" class="btn btn-info">Novo Registro</a>
+<br />
+
+<table class="table table-responsive table-striped">
+    <tr>
+        <th>Ações</th>
+        <th>Código</th>
+        <th>Nome</th>        
+    </tr>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>
+                <a href="/cidade/edit?id=@c.Id" >
+                    <img src="/img/edit_48.png" class="iconeAluno" />
+                </a>
+                &nbsp;&nbsp;
+                <a href="javascript:apagar(@c.Id)" >
+                    <img src="/img/delete_48.png" class="iconeAluno" />
+                </a>
+            </td>
+            <td>@c.Id</td>
+            <td>@c.Nome</td>            
+        </tr>
+    }
+</table>
+
+
+<script>
+    function apagar(id) {
+        if (confirm('Deseja apagar?'))
+            location.href = '/cidade/delete?id=' + id;
+    }
+</script>

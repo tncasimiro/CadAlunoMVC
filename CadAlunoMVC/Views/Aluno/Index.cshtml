@@ -1,0 +1,53 @@
+﻿@model List<AlunoViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    //var nome = prompt('Qual é o seu nome?')
+    //alert(nome);
+    //alert("Seja bem vindo ao cadastro de usuários!");
+</script>
+
+<h2>Listagem de Alunos</h2>
+
+<a href="/aluno/create" class="btn btn-info">Novo Registro</a>
+<br />
+
+<table class="table table-responsive table-striped">
+    <tr>
+        <th>Ações</th>
+        <th>RA</th>
+        <th>Nome</th>
+        <th>Data de nascimento</th>
+        <th>Mensalidade</th>
+        <th>Cidade</th>
+    </tr>
+    @foreach (var aluno in Model)
+    {
+        <tr>
+            <td>
+                <a href="/aluno/edit?id=@aluno.Id" >
+                    <img src="/img/edit_48.png" class="iconeAluno" />
+                </a>
+                &nbsp;&nbsp;
+                <a href="javascript:apagar(@aluno.Id)" >
+                    <img src="/img/delete_48.png" class="iconeAluno" />
+                </a>
+            </td>
+            <td>@aluno.Id</td>
+            <td>@aluno.Nome</td>
+            <td>@aluno.DataNascimento.ToShortDateString()</td>
+            <td>@aluno.Mensalidade?.ToString("0.00")</td>
+            <td>@aluno.NomeCidade</td>
+        </tr>
+    }
+</table>
+
+
+<script>
+    function apagar(id) {
+        if (confirm('Deseja apagar?'))
+            location.href = '/aluno/delete?id=' + id;
+    }
+</script>

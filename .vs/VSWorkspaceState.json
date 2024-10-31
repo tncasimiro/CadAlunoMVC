@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CadAlunoMVC",
+    "\\CadAlunoMVC\\DAO",
+    "\\CadAlunoMVC\\Models",
+    "\\CadAlunoMVC\\Views",
+    "\\CadAlunoMVC\\Views\\Aluno",
+    "\\CadAlunoMVC\\Views\\Home"
+  ],
+  "SelectedNode": "\\CadAlunoMVC\\DAO\\AlunoDAO.cs",
+  "PreviewInSolutionExplorer": false
+}
